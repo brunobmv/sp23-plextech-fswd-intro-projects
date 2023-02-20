@@ -153,8 +153,13 @@ In order to finally link your sheet into your HTML, you will need to use a `<lin
 Now, transfer your inline styles into an external style sheet.
 
 ---
+## JavaScript Assignment
+https://www.w3schools.com/js/exercise_js.asp?filename=exercise_js_variables1
 
-# Divs and Rectangles
+Complete this quiz! For content not covered in lecture, just search it up :))
+
+
+# Divs and Rectangles (HTML/CSS Assignment)
 
 ## Intro
 
