@@ -10,6 +10,10 @@ const RecomendationPage = ({spent, items}) => {
         return countTotal;
     }
 
+    const getTotalItems = () => {
+      
+    }
+
     const getDistributionRecommendation = () => {
         const totalCount = getTotalItems();
         const bobaCount = items.find((item) => item.category === 'boba').count;
@@ -49,3 +53,5 @@ const RecomendationPage = ({spent, items}) => {
 
 }
 
+
+export default RecomendationPage;

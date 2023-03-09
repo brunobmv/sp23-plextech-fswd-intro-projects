@@ -1,20 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import DataEntries from './pages/data.js';
+import RecomendationPage from './pages/rec.js';
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Route exact path = "./pages/data.js" component={data}/>
-        <Route exact path = "./pages/rec.js" component={rec}/>
-      </BrowserRouter>
-      <h1>Welcome to our restaurant!</h1>
-      <h2>This is the menu</h2>
-      <button onClick="{}"></button>
-      <h2>This is your page of recomendations</h2>
-
+      <Router>
+        <Routes>
+          <Route path="/pages/data" element={<DataEntries/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
