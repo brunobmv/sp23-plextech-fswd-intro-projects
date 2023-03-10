@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
+import { spent } from "../components/menu.js";
 
 
 const RecomendationPage = ({spent, items}) => {
@@ -47,7 +48,7 @@ const RecomendationPage = ({spent, items}) => {
 
       return (
         <div>
-            
+            {spent}
         </div>
       )
 

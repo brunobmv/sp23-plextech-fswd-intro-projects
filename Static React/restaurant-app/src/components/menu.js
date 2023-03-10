@@ -6,8 +6,7 @@ import { useState } from "react";
 
 
 
-
-function Menu() {
+export function Menu() {
     const [cart, setCart] = useState([]);
     const [spent, setSpent] = useState(0);
     
@@ -58,7 +57,7 @@ function Menu() {
         <div>
             <div className="title">
                 <h1>Menu</h1>
-                <h3>Pick you food!</h3>
+                <h3>Pick your food!</h3>
                 <Link to='../pages/rec.js'>
                     <button className="button-route">Stuck? See our recommendations</button>
                 </Link>
@@ -95,20 +94,21 @@ function Menu() {
             <div className="shop">
                 <h2 className="title">Shopping Cart</h2>
                     <div className="list-container"> 
+                        <h2 className="spent">Total price: {spent}</h2>
+                        <button className="button-clear" onClick={ClearCart}>Clear Shopping Cart</button>
                         <h3 className="title">Your cart:</h3>
-                            <div className="cart-container">
-                                <ul>
-                                    {cart.map(item => (
-                                        <li key={item.category}>
-                                            {item.category}: {item.count} x {item.price}  = {item.count * item.price}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <ul>
+                                {cart.map(item => (
+                                    <li key={item.category}>
+                                        <pre>{item.category}       quantity: {item.count}   |  price: ${item.price}   ====   subtotal: ${item.count * item.price}</pre>
+                                    </li>
+                                ))}
+                            </ul>
                     </div>
-                    <p>Total spent: {spent}</p>
-                    <button onClick={ClearCart}></button>
             </div>
+            <footer>
+                <p>&copy; Bruno's and Stella's shop</p>
+            </footer>
         </div>
     );
 };
