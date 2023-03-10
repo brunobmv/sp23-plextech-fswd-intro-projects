@@ -3,10 +3,10 @@ import {useHistory} from "react-router-dom";
 import { useState } from 'react';
 import Menu from '../components/menu';
 
-function DataEntries() {
+function DataEntries({spent, setSpent}) {
    return (
         <div>
-            <Menu></Menu>
+            <Menu spent={spent} setSpent={setSpent}></Menu>
         </div>
    );
 

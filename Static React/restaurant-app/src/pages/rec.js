@@ -48,7 +48,8 @@ const RecomendationPage = ({spent, items}) => {
 
       return (
         <div>
-            {spent}
+            <h1>REC PAGE</h1>
+            <h2>{spent}</h2>
         </div>
       )
 

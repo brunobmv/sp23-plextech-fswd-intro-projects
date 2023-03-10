@@ -3,12 +3,13 @@ import ChangeCount from "./changeCount";
 import Button from "./button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import App from "../App.js";
 
 
 
-export function Menu() {
+export function Menu({spent, setSpent}) {
     const [cart, setCart] = useState([]);
-    const [spent, setSpent] = useState(0);
+    
     
 
     const AddCart = (category, price) => {
