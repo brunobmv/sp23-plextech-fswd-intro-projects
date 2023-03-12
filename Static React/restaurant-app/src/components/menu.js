@@ -7,10 +7,7 @@ import App from "../App.js";
 
 
 
-export function Menu({spent, setSpent}) {
-    const [cart, setCart] = useState([]);
-    
-    
+export function Menu({spent, setSpent, cart, setCart}) { 
 
     const AddCart = (category, price) => {
         // Check if the category is already in the shopping cart
@@ -59,7 +56,7 @@ export function Menu({spent, setSpent}) {
             <div className="title">
                 <h1>Menu</h1>
                 <h3>Pick your food!</h3>
-                <Link to='../pages/rec.js'>
+                <Link to='../pages/rec'>
                     <button className="button-route">Stuck? See our recommendations</button>
                 </Link>
             </div>

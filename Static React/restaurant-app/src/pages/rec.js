@@ -1,30 +1,33 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
 import { spent } from "../components/menu.js";
+import { Link } from "react-router-dom";
 
 
 const RecomendationPage = ({spent, items}) => {
-    const getAllItems = () => {
-        const countTotal = items.reduce((acc, curr) => {
-            return acc + curr.count;
-        }, 0);
-        return countTotal;
-    }
-
     const getTotalItems = () => {
-      
+      const totalCount = items.reduce((acc, item) => acc + item.count, 0);
+      return totalCount;
     }
 
+    const getCount = ({category}) => {
+      return items.find((item) => item[0] === category).count;
+    }
+
+    
     const getDistributionRecommendation = () => {
         const totalCount = getTotalItems();
-        const bobaCount = items.find((item) => item.category === 'boba').count;
-        const coffeeCount = items.find((item) => item.category === 'coffee').count;
-        const sweetCount = items.find((item) => item.category === 'sweet').count;
+        if (totalCount == 0) {
+          return "Add some items to the list first!"
+        }
+      
+        const bobaCount = getCount("boba");
+        const coffeeCount = getCount("coffee");
+        const sweetCount = getCount("sweet");
     
         const bobaPercent = (bobaCount / totalCount) * 100;
         const coffeePercent = (coffeeCount / totalCount) * 100;
         const sweetPercent = (sweetCount / totalCount) * 100;
-    
         if (bobaPercent > 50) {
           return 'You bought a lot of boba! Consider diversifying your purchases.';
         } else if (coffeePercent > 50) {
@@ -49,7 +52,17 @@ const RecomendationPage = ({spent, items}) => {
       return (
         <div>
             <h1>REC PAGE</h1>
-            <h2>{spent}</h2>
+            <div>
+                <Link to='../pages/data'>
+                    <button className="button-route">Menu</button>
+                </Link>
+              <h2>Total amount spent: {spent}</h2>
+              <h3>Suggestion: {recomendationSpent()}</h3>
+              <h3>
+                Total amount of items selected: {getTotalItems()}
+              </h3>
+              <h3>Distribution recommendation: {getDistributionRecommendation()}</h3>
+            </div>
         </div>
       )
 
